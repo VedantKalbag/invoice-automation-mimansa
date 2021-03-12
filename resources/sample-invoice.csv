@@ -1,0 +1,15 @@
+*InvoiceNo,*Customer,*InvoiceDate,*DueDate,Terms,Location,Memo,Item(Product/Service),ItemDescription,ItemQuantity,ItemRate,*ItemAmount,*ItemTaxCode,ItemTaxAmount,Currency,Service Date
+1001,Chris Smith,23/02/2021,25/03/2021,Net 30,,My Memo,Trimming,,1,7,7,20%,1.4,GBP,21/02/2021
+1001,,,,,,,Design,New Garden Design,12,71,852,20%,170.4,,
+1001,,,,,,,Trimming,,5,111,555,5%,27.75,,21/02/2021
+1001,,,,,,,Gardening,General maintenance,14,11,154,20%,30.8,,
+1002,Karuna Ramachandran,21/02/2021,21/02/2021,Due on receipt,,,Trimming,,16,41,656,20%,131.2,,21/02/2021
+1002,,,,,,,Soil,Supplies for flower beds,1,54,54,Exempt,0,,21/02/2021
+1003,Lynda Higgs,21/02/2021,22/04/2021,Net 60,,,Rocks,,4,47,188,0%,0,EUR,
+1004,Karuna Ramachandran,23/02/2021,10/03/2021,Net 15,,,Soil,Supplies for hanging pots,1,29,29,0%,,GBP,21/02/2021
+1004,,,,,,,Rocks,,5,46,230,Exempt,,,21/02/2021
+1004,,,,,,,Trimming,,15,48,720,20%,,,
+,,,,,,,,,,,,,,
+All data is for sample purposes only,,,,,,,,,,,,,,
+* denotes a mandatory column,,,,,,,,,,,,,,
+Keep your tax codes as you will be able to map them later,,,,,,,,,,,,,,
