@@ -1,5 +1,7 @@
-
+import create_csv.py
 #%%
+
+
 import PyPDF2
 pdfFileObj = open('../resources/purchase-orders/PO_300000001076033_PO2014545205_0.pdf','rb')
 pdfReader = PyPDF2.PdfFileReader(pdfFileObj)

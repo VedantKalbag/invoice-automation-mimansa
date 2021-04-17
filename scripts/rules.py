@@ -1,28 +1,12 @@
+COUNTRY_NAME_LENGTH=5
+
+"""
 def insert_sequence(str1, str2, int):
-    """ (str1, str2, int) -> str
-
-    Return the DNA sequence obtained by inserting the 
-    second DNA sequence into the first DNA sequence 
-    at the given index.
-
-    >>> insert_sequence('CCGG', 'AT', 2)
-    CCATGG
-    >>> insert_sequence('CCGG', 'AT', 3)
-    CCGATG
-    >>> insert_sequence('CCGG', 'AT', 4)
-    CCGGAT
-    >>> insert_sequence('CCGG', 'AT', 0)
-    ATCCGG
-    >>> insert_sequence('CCGGAATTGG', 'AT', 6)
-    CCGGAAATTTGG
-
-    """
-
     str1_split1 = str1[:int]
     str1_split2 = str1[int:]
     new_string = str1_split1 + str2 + str1_split2
     return new_string
-
+"""
 
 poNumber=page1[page1.find('Page')+4:page1.find('Business')]
 businessUnit=page1[page1.find('Unit')+4:page1.find('Send')]
@@ -37,6 +21,7 @@ secondEmail=page2[page2.find('QueriesEmail: ')+14 : page2.find('.com')+4]
 
 #Processing Itemized List
 text=page2[page2.find('LineItemPriceQuantity') : -1]
+"""
 # text=insert_sequence(text,'\t',text.find('Item',0))
 # text=insert_sequence(text,'\t',text.find('Price',0))
 # text=insert_sequence(text,'\t',text.find('Quantity',0))
@@ -45,3 +30,28 @@ text=page2[page2.find('LineItemPriceQuantity') : -1]
 # text=insert_sequence(text,'\t',text.find('Taxable',0))
 # text=insert_sequence(text,'\t',text.find('Taxable')+7)
 # text=insert_sequence(text,'\t',text.find('Taxable\t')+9)
+"""
+
+val=float(text[text.find(',')-1:text.find('.00')+3].replace(',',''))
+total=float(text[text.find('Total',text.find('Line Total')+10)+5:-1].replace(',',''))
+qty=float(text[text.find('Promised')+8:text.find('Each',text.find('Promised'))])
+
+if qty*val==total:
+    itemQty=qty
+    itemVal=val
+    invoiceTotal=total
+else:
+    val=float(text[text.find(',')-2:text.find('.00')+3].replace(',',''))
+    total=float(text[text.find('Total',text.find('Line Total')+10)+5:-1].replace(',',''))
+    qty=float(text[text.find('Promised')+8:text.find('Each',text.find('Promised'))])
+
+itemDescription = text[text.find('Taxable')+8 : text.find(',')-1]
+
+temp=billToAddress[::-1]
+for x in temp:
+    if x.isdigit():
+        index = temp.index(x)
+        break
+state=billToAddress[-index:]
+state=state[:len(state)-COUNTRY_NAME_LENGTH]
+
